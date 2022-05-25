@@ -7,7 +7,6 @@ import (
 	"time"
 
 	"github.com/dinner-plans-llc/common/logging"
-	"github.com/dinner-plans-llc/common/server"
 	"go.uber.org/fx"
 )
 
@@ -17,7 +16,6 @@ func TestApp(t *testing.T) {
 		fx.Provide(logging.ProvideLogger),
 		fx.Provide(ProvideHttpHandler),
 		fx.Provide(ProvideHttpServer),
-		fx.Provide(server.ProvideServer),
 	)
 
 	start, cancel := context.WithTimeout(context.TODO(), time.Second*15)
