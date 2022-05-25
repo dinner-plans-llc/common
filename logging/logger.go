@@ -15,7 +15,6 @@ func ProvideLogger() (*zap.Logger, error) {
 		log.Fatal(err)
 		return nil, fmt.Errorf("zap.NewDevelopment err=%s", err)
 	}
-	defer logger.Sync()
 
 	logger.Debug("provide new logger")
 

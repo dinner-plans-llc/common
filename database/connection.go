@@ -1,7 +1,10 @@
 package database
 
 import (
+	"context"
 	"database/sql"
+
+	"go.uber.org/zap"
 )
 
 const (
@@ -10,17 +13,31 @@ const (
 
 // Database
 type Database struct {
-	db *sql.DB
+	db     *sql.DB
+	logger *zap.SugaredLogger
+	config *Config
 }
 
-// ProvideDatabase
-func ProvideDatabase(dsn string) (*Database, error) {
+// Open
+func (db *Database) Open() error {
 
-	db, err := sql.Open(_driverName, dsn)
+	var err error
+
+	db.db, err = sql.Open(_driverName, db.config.dbFilePath)
 	if err != nil {
-		return nil, err
+		db.logger.Errorf("failed to open database ", err)
+		return err
 	}
-	defer db.Close()
 
-	return &Database{db: db}, nil
+	return nil
+}
+
+// Close
+func (db *Database) Close() error {
+	return db.db.Close()
+}
+
+// Conn
+func (db *Database) Conn(ctx context.Context) (*sql.Conn, error) {
+	return db.db.Conn(ctx)
 }
