@@ -4,7 +4,7 @@ import "go.uber.org/zap"
 
 // Config ...
 type Config struct {
-	dbFilePath string `env:"DB_FILE_PATH"`
+	FilePath string `env:"DB_FILE_PATH"`
 }
 
 // Load create new database instance with a unopened database

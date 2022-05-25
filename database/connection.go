@@ -23,7 +23,7 @@ func (db *Database) Open() error {
 
 	var err error
 
-	db.db, err = sql.Open(_driverName, db.config.dbFilePath)
+	db.db, err = sql.Open(_driverName, db.config.FilePath)
 	if err != nil {
 		db.logger.Errorf("failed to open database ", err)
 		return err
