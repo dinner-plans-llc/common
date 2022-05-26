@@ -12,8 +12,8 @@ const (
 
 // Config
 type Config struct {
-	Host string
-	Port string
+	Host string `env:"SERVER_HOST, default=0.0.0.0" json:"server_host"`
+	Port string `env:"SERVER_PORT, default=8080" json:"server_port"`
 }
 
 // Load
