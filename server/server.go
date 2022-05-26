@@ -2,7 +2,6 @@ package server
 
 import (
 	"net"
-	"net/http"
 
 	"go.uber.org/zap"
 )
@@ -10,7 +9,6 @@ import (
 // Server
 type Server struct {
 	c        *Config
-	server   *http.Server
 	listener net.Listener
 	logger   *zap.SugaredLogger
 }

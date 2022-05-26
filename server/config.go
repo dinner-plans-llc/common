@@ -2,7 +2,6 @@ package server
 
 import (
 	"net"
-	"net/http"
 
 	"go.uber.org/zap"
 )
@@ -18,7 +17,7 @@ type Config struct {
 }
 
 // Load
-func (c *Config) Load(log *zap.Logger, handler http.Handler) (*Server, error) {
+func (c *Config) Load(log *zap.Logger) (*Server, error) {
 
 	logger := log.Named("http controller").Sugar()
 
@@ -28,15 +27,9 @@ func (c *Config) Load(log *zap.Logger, handler http.Handler) (*Server, error) {
 		return nil, err
 	}
 
-	server := &http.Server{
-		ErrorLog: zap.NewStdLog(log),
-		Handler:  handler,
-	}
-
 	return &Server{
 		c:        c,
 		logger:   logger,
 		listener: listener,
-		server:   server,
 	}, nil
 }
