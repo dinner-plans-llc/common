@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option go_package = "github.com/dinner-plans-llc/common/proto/grpc_health_v1";
+
+package grpc_health_v1;
+
+
+
+// Health is the health service
+service Health {
+
+}
