@@ -5,6 +5,9 @@ go 1.18
 require (
 	firebase.google.com/go/v4 v4.8.0
 	go.uber.org/zap v1.21.0
+	golang.org/x/lint v0.0.0-20210508222113-6edffad5e616
+	google.golang.org/api v0.73.0
+	google.golang.org/grpc v1.45.0
 )
 
 require (
@@ -23,12 +26,11 @@ require (
 	golang.org/x/oauth2 v0.0.0-20220309155454-6242fa91716a // indirect
 	golang.org/x/sys v0.0.0-20220310020820-b874c991c1a5 // indirect
 	golang.org/x/text v0.3.7 // indirect
+	golang.org/x/tools v0.1.5 // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
-	google.golang.org/api v0.73.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/appengine/v2 v2.0.1 // indirect
 	google.golang.org/genproto v0.0.0-20220310185008-1973136f34c6 // indirect
-	google.golang.org/grpc v1.45.0 // indirect
 	google.golang.org/protobuf v1.27.1 // indirect
 )
 
