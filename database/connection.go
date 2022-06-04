@@ -5,6 +5,8 @@ import (
 	"database/sql"
 
 	"go.uber.org/zap"
+
+	_ "github.com/mattn/go-sqlite3"
 )
 
 const (
